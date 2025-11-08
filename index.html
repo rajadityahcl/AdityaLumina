@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ElevatePath — Career Coaching for Online Students</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111834;
+      --muted:#a6b0cf;
+      --text:#f5f7ff;
+      --accent:#6ea8fe;
+      --accent-2:#7ee787;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -10%, #1a2a6c22, transparent),
+                  radial-gradient(1000px 800px at 110% 10%, #2a6c1a22, transparent),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    header{
+      padding: 24px;
+      border-bottom: 1px solid #ffffff14;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .logo{
+      width:36px; height:36px; border-radius:10px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid; place-items:center; color:#0a0f1f; font-weight:800;
+    }
+    .btn{
+      padding:12px 16px; border-radius:12px; border:1px solid #ffffff22;
+      background:#ffffff08; color:var(--text); text-decoration:none; font-weight:600;
+      transition:.2s ease; backdrop-filter: blur(6px);
+    }
+    .btn:hover{ transform:translateY(-1px); border-color:#ffffff40 }
+    .btn.primary{
+      background: linear-gradient(135deg,var(--accent), #4f8bff);
+      border:none; color:#0b1020;
+    }
+    .btn.secondary{
+      background: #ffffff0d;
+    }
+    .hero{
+      padding: 72px 24px 40px;
+      display:grid; place-items:center; text-align:center;
+    }
+    .hero h1{
+      margin:0 0 12px 0;
+      font-size: clamp(28px, 6vw, 52px);
+      line-height:1.15;
+      letter-spacing:.3px;
+    }
+    .hero p{
+      color: var(--muted);
+      max-width: 780px;
+      margin: 0 auto 28px;
+      font-size: clamp(15px, 2.6vw, 18px);
+    }
+    .cta{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
+    .badges{
+      display:flex; gap:12px; justify-content:center; margin-top:16px; flex-wrap:wrap;
+      color:#c9d1f0; font-size:14px;
+    }
+    .grid{
+      display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      padding: 10px; margin: 0 auto; max-width:1100px;
+    }
+    section{ padding: 22px 24px 10px; }
+    .card{
+      background: linear-gradient(180deg,#ffffff06,#ffffff03);
+      border: 1px solid #ffffff14; border-radius:16px; padding:18px;
+      box-shadow: 0 10px 30px #00000033 inset;
+    }
+    .card h3{ margin:6px 0 6px; font-size:18px }
+    .pill{ font-size:12px; color:#9fb0ff; border:1px solid #ffffff26; padding:2px 8px; border-radius:999px }
+    .section-title{
+      font-size:22px; margin: 28px auto 12px; max-width:1100px; padding:0 6px;
+      display:flex; align-items:center; gap:10px; color:#dbe5ff;
+    }
+    .section-title span{ font-size:12px; opacity:.75 }
+    ul{ padding-left:18px; margin:8px 0 }
+    .two-col{
+      max-width:1100px; margin:0 auto; display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    footer{
+      padding: 30px 24px; color:#b8c2e0; border-top:1px solid #ffffff14; text-align:center;
+    }
+    .tall{min-height: 46px}
+    .highlight{color: var(--accent-2); font-weight:700}
+    .note{font-size:13px; color:#9aa6cf}
+    .price{
+      font-size:28px; font-weight:800; margin: 2px 0 10px;
+      background: linear-gradient(135deg, #a3b8ff, #ffffff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .plan{ display:flex; gap:10px; align-items:center; justify-content:space-between }
+    .list-plain{list-style:none; padding:0; margin:6px 0}
+    .list-plain li{ margin:8px 0; display:flex; gap:8px; align-items:flex-start}
+    .tick{ width:18px; height:18px; border-radius:5px; display:inline-grid; place-items:center; background:#2a7b45; font-size:12px }
+    a.inline{ color: var(--accent) }
+    .contact{ max-width: 760px; margin: 0 auto; text-align:center }
+    .input{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid #ffffff25; background:#ffffff08; color:var(--text) }
+    .row{ display:grid; grid-template-columns: 1fr auto; gap:10px; margin-top:10px }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">E</div>
+      <div>ElevatePath</div>
+    </div>
+    <nav>
+      <a class="btn secondary" href="#product">Product</a>
+      <a class="btn secondary" href="#pricing">Pricing</a>
+      <a class="btn secondary" href="#contact">Contact</a>
+      <a class="btn primary" href="https://calendly.com" target="_blank" rel="noopener">Book Intro Call</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Career coaching that actually gets online students hired</h1>
+    <p>Hybrid <span class="highlight">Human + AI</span> mentorship: personalized roadmaps, resume & LinkedIn optimization, mock interviews, and project guidance—built for online learners, international students, and career switchers.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://calendly.com" target="_blank" rel="noopener">Get Free 15‑min Consult</a>
+      <a class="btn" href="#product">See How It Works</a>
+    </div>
+    <div class="badges">
+      <span class="pill">UConn network</span>
+      <span class="pill">Data‑driven coaching</span>
+      <span class="pill">AI‑powered tools</span>
+      <span class="pill">Remote‑first</span>
+    </div>
+  </section>
+
+  <section id="product">
+    <div class="section-title">Product · <span>What you get</span></div>
+    <div class="grid">
+      <div class="card">
+        <h3>Personalized Career Roadmap</h3>
+        <p class="tall">Milestone‑based plan tailored to your goals, timeline, and background.</p>
+        <ul>
+          <li>Skill gap analysis</li>
+          <li>Weekly action items</li>
+          <li>Project recommendations</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Resume & LinkedIn Optimization</h3>
+        <p class="tall">ATS‑friendly resumes and recruiter‑ready profiles with measurable outcomes.</p>
+        <ul>
+          <li>Quantified bullet rewrites</li>
+          <li>Keyword alignment to roles</li>
+          <li>Portfolio & GitHub review</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Mock Interviews + Feedback</h3>
+        <p class="tall">Behavioral + technical practice with structured rubrics and replay notes.</p>
+        <ul>
+          <li>DS/DA, SQL, Python, case‑based</li>
+          <li>STAR storytelling coaching</li>
+          <li>Confidence building</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>AI Tools</h3>
+        <p class="tall">Resume scoring, JD match, interview question generator, study planner.</p>
+        <ul>
+          <li>Career roadmap generator</li>
+          <li>Project recommender</li>
+          <li>Job tracker insights</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Why now · <span>Perfect timing</span></div>
+    <div class="two-col">
+      <div class="card">
+        <h3>Tailwinds</h3>
+        <ul>
+          <li>AI disruption → need for personal guidance</li>
+          <li>Rise of online & hybrid learning</li>
+          <li>Shift to skill‑based hiring</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>For Whom</h3>
+        <ul>
+          <li>Online students & grads</li>
+          <li>International students (U.S. internships)</li>
+          <li>Career switchers and bootcamp learners</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="section-title">Pricing · <span>Simple tiers</span></div>
+    <div class="grid">
+      <div class="card">
+        <div class="plan">
+          <h3>Starter</h3><div class="price">$0</div>
+        </div>
+        <ul class="list-plain">
+          <li><span class="tick">✓</span> Templates & checklists</li>
+          <li><span class="tick">✓</span> Weekly tips newsletter</li>
+          <li><span class="tick">✓</span> 15‑min intro call</li>
+        </ul>
+        <a class="btn" href="https://calendly.com" target="_blank">Get Started</a>
+      </div>
+      <div class="card">
+        <div class="plan">
+          <h3>Standard</h3><div class="price">$29/mo</div>
+        </div>
+        <ul class="list-plain">
+          <li><span class="tick">✓</span> 2× coaching sessions / month</li>
+          <li><span class="tick">✓</span> Resume + LinkedIn optimization</li>
+          <li><span class="tick">✓</span> Personalized skill roadmap</li>
+        </ul>
+        <a class="btn primary" href="https://buy.stripe.com" target="_blank">Choose Standard</a>
+      </div>
+      <div class="card">
+        <div class="plan">
+          <h3>Premium</h3><div class="price">$79/mo</div>
+        </div>
+        <ul class="list-plain">
+          <li><span class="tick">✓</span> 4× sessions + chat support</li>
+          <li><span class="tick">✓</span> Mock interviews + feedback</li>
+          <li><span class="tick">✓</span> AI tool suite access</li>
+        </ul>
+        <a class="btn primary" href="https://buy.stripe.com" target="_blank">Choose Premium</a>
+      </div>
+      <div class="card">
+        <div class="plan">
+          <h3>Elite</h3><div class="price">$199/mo</div>
+        </div>
+        <ul class="list-plain">
+          <li><span class="tick">✓</span> Unlimited chat + priority slots</li>
+          <li><span class="tick">✓</span> Case prep & portfolio review</li>
+          <li><span class="tick">✓</span> Career referrals (when available)</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com" target="_blank">Choose Elite</a>
+      </div>
+    </div>
+    <p class="note" style="max-width:1100px;margin:14px auto 0;padding:0 6px;">Note: Replace placeholder links with your Calendly/Stripe URLs.</p>
+  </section>
+
+  <section>
+    <div class="section-title">Testimonials · <span>Social proof</span></div>
+    <div class="grid">
+      <div class="card"><em>“I landed my first DA internship in 8 weeks thanks to the interview practice.”</em><br/><span class="note">— Graduate Student</span></div>
+      <div class="card"><em>“The roadmap and resume rewrite were game‑changers.”</em><br/><span class="note">— Online Learner</span></div>
+      <div class="card"><em>“Clear guidance + real projects made me confident for applications.”</em><br/><span class="note">— Career Switcher</span></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">Contact · <span>Let’s talk</span></div>
+    <div class="contact card">
+      <p>Have questions or want a custom plan for your cohort or university? Send a quick note and we’ll get back within 24 hours.</p>
+      <div class="row">
+        <input class="input" placeholder="Your email" />
+        <a class="btn primary" href="mailto:hello@elevatepath.example">Email Us</a>
+      </div>
+      <p class="note">Replace the email with your domain; hook the form to your backend when ready.</p>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> ElevatePath — Career Coaching for Online Students · Built with ♥
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
