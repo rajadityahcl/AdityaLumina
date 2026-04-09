@@ -1,10 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aditya Lumina — Career Coaching for Online Students</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Aditya Lumina offers career coaching for online students through AI-guided mentorship, resume optimization, mock interviews, and project guidance."
+  />
+  <title>Aditya Lumina — Career Growth with AI</title>
+
   <style>
     :root{
       --bg:#0b1020;
@@ -13,278 +17,655 @@
       --text:#f5f7ff;
       --accent:#6ea8fe;
       --accent-2:#7ee787;
+      --border:#ffffff14;
+      --focus:#ffd166;
     }
+
     *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 10% -10%, #1a2a6c22, transparent),
-                  radial-gradient(1000px 800px at 110% 10%, #2a6c1a22, transparent),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #1a2a6c22, transparent),
+        radial-gradient(1000px 800px at 110% 10%, #2a6c1a22, transparent),
+        var(--bg);
       color:var(--text);
       line-height:1.6;
     }
+
+    a{color:inherit}
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+    .skip-link{
+      position:absolute;
+      left:16px;
+      top:-48px;
+      background:#fff;
+      color:#000;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      z-index:1000;
+      transition:top .2s ease;
+    }
+    .skip-link:focus{top:16px}
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+
     header{
-      padding: 24px;
-      border-bottom: 1px solid #ffffff14;
-      display:flex; align-items:center; justify-content:space-between;
+      border-bottom:1px solid var(--border);
     }
+
+    .header-inner{
+      padding:24px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
     .brand{
-      display:flex; gap:12px; align-items:center;
-      font-weight:700; letter-spacing:.2px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:var(--text);
+      font-weight:700;
+      letter-spacing:.2px;
     }
-    .logo{
-      width:36px; height:36px; border-radius:10px;
-      background: linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:grid; place-items:center; color:#0a0f1f; font-weight:800;
+
+    .logo-img{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      object-fit:cover;
+      border:1px solid #ffffff22;
+      background:#ffffff08;
     }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.2;
+    }
+
+    .brand-text strong{
+      font-size:1rem;
+    }
+
+    .brand-text span{
+      color:var(--muted);
+      font-size:.92rem;
+      font-weight:500;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
     .btn{
-      padding:12px 16px; border-radius:12px; border:1px solid #ffffff22;
-      background:#ffffff08; color:var(--text); text-decoration:none; font-weight:600;
-      transition:.2s ease; backdrop-filter: blur(6px);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid #ffffff22;
+      background:#ffffff08;
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      transition:.2s ease;
+      backdrop-filter:blur(6px);
+      min-height:44px;
     }
-    .btn:hover{ transform:translateY(-1px); border-color:#ffffff40 }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:#ffffff40;
+    }
+
     .btn.primary{
-      background: linear-gradient(135deg,var(--accent), #4f8bff);
-      border:none; color:#0b1020;
+      background:linear-gradient(135deg,var(--accent), #4f8bff);
+      border:none;
+      color:#0b1020;
     }
+
     .btn.secondary{
-      background: #ffffff0d;
+      background:#ffffff0d;
     }
+
     .hero{
-      padding: 72px 24px 40px;
-      display:grid; place-items:center; text-align:center;
+      padding:72px 0 40px;
+      text-align:center;
     }
+
     .hero h1{
-      margin:0 0 12px 0;
-      font-size: clamp(28px, 6vw, 52px);
+      margin:0 0 12px;
+      font-size:clamp(2rem, 6vw, 3.25rem);
       line-height:1.15;
       letter-spacing:.3px;
     }
+
+    .hero .subtitle{
+      font-size:clamp(1.05rem, 2.4vw, 1.3rem);
+      color:#dbe5ff;
+      margin:0 0 12px;
+      font-weight:600;
+    }
+
     .hero p{
-      color: var(--muted);
-      max-width: 780px;
-      margin: 0 auto 28px;
-      font-size: clamp(15px, 2.6vw, 18px);
+      color:var(--muted);
+      max-width:780px;
+      margin:0 auto 28px;
+      font-size:clamp(15px, 2.6vw, 18px);
     }
-    .cta{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
+
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-bottom:16px;
+    }
+
     .badges{
-      display:flex; gap:12px; justify-content:center; margin-top:16px; flex-wrap:wrap;
-      color:#c9d1f0; font-size:14px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin-top:16px;
+      flex-wrap:wrap;
+      color:#c9d1f0;
+      font-size:14px;
     }
-    .grid{
-      display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      padding: 10px; margin: 0 auto; max-width:1100px;
+
+    .pill{
+      font-size:12px;
+      color:#9fb0ff;
+      border:1px solid #ffffff26;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#ffffff06;
     }
-    section{ padding: 22px 24px 10px; }
-    .card{
-      background: linear-gradient(180deg,#ffffff06,#ffffff03);
-      border: 1px solid #ffffff14; border-radius:16px; padding:18px;
-      box-shadow: 0 10px 30px #00000033 inset;
+
+    main section{
+      padding:22px 0 10px;
     }
-    .card h3{ margin:6px 0 6px; font-size:18px }
-    .pill{ font-size:12px; color:#9fb0ff; border:1px solid #ffffff26; padding:2px 8px; border-radius:999px }
+
     .section-title{
-      font-size:22px; margin: 28px auto 12px; max-width:1100px; padding:0 6px;
-      display:flex; align-items:center; gap:10px; color:#dbe5ff;
+      font-size:1.5rem;
+      margin:28px 0 12px;
+      color:#dbe5ff;
     }
-    .section-title span{ font-size:12px; opacity:.75 }
-    ul{ padding-left:18px; margin:8px 0 }
+
+    .section-intro{
+      color:var(--muted);
+      margin:0 0 18px;
+      max-width:760px;
+    }
+
+    .grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    }
+
     .two-col{
-      max-width:1100px; margin:0 auto; display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
     }
-    footer{
-      padding: 30px 24px; color:#b8c2e0; border-top:1px solid #ffffff14; text-align:center;
+
+    .card{
+      background:linear-gradient(180deg,#ffffff06,#ffffff03);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 10px 30px #00000033 inset;
     }
-    .tall{min-height: 46px}
-    .highlight{color: var(--accent-2); font-weight:700}
-    .note{font-size:13px; color:#9aa6cf}
+
+    .card h3{
+      margin:6px 0;
+      font-size:1.125rem;
+    }
+
+    .card p{
+      margin:8px 0 10px;
+    }
+
+    ul{
+      padding-left:20px;
+      margin:8px 0;
+    }
+
+    .highlight{
+      color:var(--accent-2);
+      font-weight:700;
+    }
+
     .price{
-      font-size:28px; font-weight:800; margin: 2px 0 10px;
-      background: linear-gradient(135deg, #a3b8ff, #ffffff);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size:28px;
+      font-weight:800;
+      margin:2px 0 10px;
+      background:linear-gradient(135deg, #a3b8ff, #ffffff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
     }
-    .plan{ display:flex; gap:10px; align-items:center; justify-content:space-between }
-    .list-plain{list-style:none; padding:0; margin:6px 0}
-    .list-plain li{ margin:8px 0; display:flex; gap:8px; align-items:flex-start}
-    .tick{ width:18px; height:18px; border-radius:5px; display:inline-grid; place-items:center; background:#2a7b45; font-size:12px }
-    a.inline{ color: var(--accent) }
-    .contact{ max-width: 760px; margin: 0 auto; text-align:center }
-    .input{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid #ffffff25; background:#ffffff08; color:var(--text) }
-    .row{ display:grid; grid-template-columns: 1fr auto; gap:10px; margin-top:10px }
+
+    .plan{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .list-plain{
+      list-style:none;
+      padding:0;
+      margin:6px 0 16px;
+    }
+
+    .list-plain li{
+      margin:8px 0;
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+    }
+
+    .tick{
+      width:18px;
+      height:18px;
+      flex:0 0 18px;
+      border-radius:5px;
+      display:inline-grid;
+      place-items:center;
+      background:#2a7b45;
+      font-size:12px;
+      margin-top:3px;
+    }
+
+    .contact{
+      max-width:760px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .input{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid #ffffff25;
+      background:#ffffff08;
+      color:var(--text);
+      min-height:44px;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .note{
+      font-size:13px;
+      color:#9aa6cf;
+    }
+
+    .brochure-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+      margin-top:14px;
+    }
+
+    footer{
+      padding:30px 24px;
+      color:#b8c2e0;
+      border-top:1px solid var(--border);
+      text-align:center;
+      margin-top:28px;
+    }
+
+    @media (max-width: 720px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      nav{
+        width:100%;
+      }
+
+      .row{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header>
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Aditya Lumina home">
+        <img
+          src="AdityaLuminaImage.jpg"
+          alt="Aditya Lumina logo"
+          class="logo-img"
+        />
+        <div class="brand-text">
+          <strong>Aditya Lumina</strong>
+          <span>Career Growth with AI</span>
+        </div>
+      </a>
 
-    <div class="brand">
-      <!-- Updated logo here -->
-      <img src="AdityaLuminaImage.jpg" alt="Aditya Lumina Logo" class="logo-img">
-      <div>Aditya Lumina</div>
+      <nav aria-label="Primary navigation">
+        <a class="btn secondary" href="#services">Services</a>
+        <a class="btn secondary" href="#who-it-is-for">Who It Is For</a>
+        <a class="btn secondary" href="#why-us">Why Us</a>
+        <a class="btn secondary" href="#pricing">Pricing</a>
+        <a class="btn secondary" href="#contact">Contact</a>
+        <a
+          class="btn primary"
+          href="https://calendly.com/251992-rajaditya/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Book Intro Call
+        </a>
+      </nav>
     </div>
-
-    <nav>
-      <a class="btn secondary" href="#product">Product</a>
-      <a class="btn secondary" href="#pricing">Pricing</a>
-      <a class="btn secondary" href="#contact">Contact</a>
-      <a class="btn primary" href="https://calendly.com/251992-rajaditya/30min" target="_blank">Book Intro Call</a>
-    </nav>
   </header>
 
-  <section class="hero">
-    <h1>Career coaching that actually gets online students hired</h1>
-    <p>Hybrid <span class="highlight">Human + AI</span> mentorship: personalized roadmaps, resume & LinkedIn optimization, mock interviews, and project guidance—built for online learners, international students, and career switchers.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://calendly.com/251992-rajaditya/30min" target="_blank" rel="noopener">Get Free 30‑min Consult</a>
-      <a class="btn" href="#product">See How It Works</a>
-    </div>
-    <div class="badges">
-      <span class="pill">UConn Network</span>
-      <span class="pill">Data‑driven Coaching</span>
-      <span class="pill">AI‑powered Tools</span>
-      <span class="pill">Remote‑first</span>
-    </div>
-  </section>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="subtitle">Accessible one-page brochure experience</p>
+        <h1 id="hero-title">Aditya Lumina</h1>
+        <p>
+          Hybrid <span class="highlight">Human + AI</span> mentorship for online learners,
+          international students, and career switchers. Get structured guidance on career
+          roadmaps, resumes, LinkedIn, mock interviews, and project positioning.
+        </p>
 
-  <section id="product">
-    <div class="section-title">Product · <span>What you get</span></div>
-    <div class="grid">
-      <div class="card">
-        <h3>Personalized Career Roadmap</h3>
-        <p class="tall">Milestone‑based plan tailored to your goals, timeline, and background.</p>
-        <ul>
-          <li>Skill gap analysis</li>
-          <li>Weekly action items</li>
-          <li>Project recommendations</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Resume & LinkedIn Optimization</h3>
-        <p class="tall">ATS‑friendly resumes and recruiter‑ready profiles with measurable outcomes.</p>
-        <ul>
-          <li>Quantified bullet rewrites</li>
-          <li>Keyword alignment to roles</li>
-          <li>Portfolio & GitHub review</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Mock Interviews + Feedback</h3>
-        <p class="tall">Behavioral + technical practice with structured rubrics and replay notes.</p>
-        <ul>
-          <li>SQL, Python, case‑based</li>
-          <li>STAR storytelling coaching</li>
-          <li>Confidence building</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>AI Tools</h3>
-        <p class="tall">Resume scoring, JD match, interview question generator, study planner.</p>
-        <ul>
-          <li>Career roadmap generator</li>
-          <li>Project recommender</li>
-          <li>Job tracker insights</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">Why now · <span>Perfect timing</span></div>
-    <div class="two-col">
-      <div class="card">
-        <h3>Tailwinds</h3>
-        <ul>
-          <li>AI disruption → need for personal guidance</li>
-          <li>Rise of online & hybrid learning</li>
-          <li>Shift to skill‑based hiring</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>For Whom</h3>
-        <ul>
-          <li>Online students & grads</li>
-          <li>International students (U.S. internships)</li>
-          <li>Career switchers and bootcamp learners</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <div class="section-title">Pricing · <span>Simple tiers</span></div>
-    <div class="grid">
-      <div class="card">
-        <div class="plan">
-          <h3>Starter</h3><div class="price">Free</div>
+        <div class="cta">
+          <a
+            class="btn primary"
+            href="https://calendly.com/251992-rajaditya/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Free 30-min Consult
+          </a>
+          <a class="btn" href="#services">See Services</a>
         </div>
-        <ul class="list-plain">
-          <li><span class="tick">✓</span> Templates & checklists, Career Objective Discussion</li>
-          <li><span class="tick">✓</span> Weekly tips newsletter, Strategies Identification</li>
-          <li><span class="tick">✓</span> 30‑min intro call, Strategies Implementation & Monitoring</li>
-        </ul>
-        <a class="btn" href="https://calendly.com/251992-rajaditya/30min" target="_blank">Get Started</a>
-      </div>
-      <div class="card">
-        <div class="plan">
-          <h3>Standard</h3><div class="price">Rs199</div>
-        </div>
-        <ul class="list-plain">
-          <li><span class="tick">✓</span> 2× coaching sessions</li>
-          <li><span class="tick">✓</span> Resume + LinkedIn optimization</li>
-          <li><span class="tick">✓</span> Personalized Skill Roadmap</li>
-        </ul>
-        <a class="btn primary" href="upi://pay?pa=adiraj2607@axl&pn=Aditya%20Raj&cu=INR" target="_blank">Choose Standard</a>
-      </div>
-      <div class="card">
-        <div class="plan">
-          <h3>Premium</h3><div class="price">Rs599</div>
-        </div>
-        <ul class="list-plain">
-          <li><span class="tick">✓</span> 4× Sessions + Chat Support</li>
-          <li><span class="tick">✓</span> Mock Interviews + Feedback</li>
-          <li><span class="tick">✓</span> AI Tool Suite Guidance</li>
-        </ul>
-        <a class="btn primary" href="upi://pay?pa=adiraj2607@axl&pn=Aditya%20Raj&cu=INR" target="_blank">Choose Premium</a>
-      </div>
-      <div class="card">
-        <div class="plan">
-          <h3>Elite</h3><div class="price">Rs1099</div>
-        </div>
-        <ul class="list-plain">
-          <li><span class="tick">✓</span> Unlimited Chat + Priority Slots</li>
-          <li><span class="tick">✓</span> Case Prep & Portfolio Review</li>
-          <li><span class="tick">✓</span> Career Referrals (when available)</li>
-        </ul>
-        <a class="btn" href="upi://pay?pa=adiraj2607@axl&pn=Aditya%20Raj&cu=INR" target="_blank">Choose Elite</a>
-      </div>
-    </div>
-    <!-- <p class="note" style="max-width:1100px;margin:14px auto 0;padding:0 6px;">Note:https://calendly.com/251992-rajaditya/30min</p> -->
-  </section>
 
-  <!-- <section>
-    <div class="section-title">Testimonials · <span>Social proof</span></div>
-    <div class="grid">
-      <div class="card"><em>“I landed my first DA internship in 8 weeks thanks to the interview practice.”</em><br/><span class="note">— Graduate Student</span></div>
-      <div class="card"><em>“The roadmap and resume rewrite were game‑changers.”</em><br/><span class="note">— Online Learner</span></div>
-      <div class="card"><em>“Clear guidance + real projects made me confident for applications.”</em><br/><span class="note">— Career Switcher</span></div>
-    </div>
-  </section> -->
+        <div class="brochure-links" aria-label="Brochure links">
+          <a class="btn secondary" href="/brochure/" target="_blank" rel="noopener noreferrer">
+            View HTML Brochure
+          </a>
+          <a class="btn secondary" href="/brochure.pdf" download>
+            Download PDF Brochure
+          </a>
+        </div>
 
-  <section id="contact">
-    <div class="section-title">Contact · <span>Let’s talk</span></div>
-    <div class="contact card">
-      <p>Have questions or want a custom plan for your cohort or university? Send a quick note and we’ll get back within 24 hours.</p>
-      <div class="row">
-        <input class="input" placeholder="Your Email" />
-        <a class="btn primary" href="mailto:251992.rajaditya@gmail.com">Email Us</a>
-     <!--  </div>
-      <p class="note">Replace the email with your domain; hook the form to your backend when ready.</p>
-    </div> -->
-  </section>
+        <div class="badges" aria-label="Highlights">
+          <span class="pill">UConn Network</span>
+          <span class="pill">Data-driven Coaching</span>
+          <span class="pill">AI-powered Tools</span>
+          <span class="pill">Remote-first</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="container">
+        <h2 class="section-title" id="services-title">Services</h2>
+        <p class="section-intro">
+          A structured support system designed to help learners present themselves clearly,
+          close skill gaps, and improve job readiness.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Personalized Career Roadmap</h3>
+            <p>Milestone-based planning tailored to your goals, timeline, and background.</p>
+            <ul>
+              <li>Skill gap analysis</li>
+              <li>Weekly action items</li>
+              <li>Project recommendations</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Resume &amp; LinkedIn Optimization</h3>
+            <p>ATS-friendly documents and recruiter-ready profiles with measurable outcomes.</p>
+            <ul>
+              <li>Quantified bullet rewrites</li>
+              <li>Keyword alignment to roles</li>
+              <li>Portfolio and GitHub review</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Mock Interviews + Feedback</h3>
+            <p>Behavioral and technical practice with structured rubrics and replay notes.</p>
+            <ul>
+              <li>SQL, Python, and case-based prep</li>
+              <li>STAR storytelling coaching</li>
+              <li>Confidence building</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>AI Tools</h3>
+            <p>Guided use of practical AI support tools to improve efficiency and direction.</p>
+            <ul>
+              <li>Career roadmap generator</li>
+              <li>Project recommender</li>
+              <li>Job tracker insights</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="who-it-is-for" aria-labelledby="who-title">
+      <div class="container">
+        <h2 class="section-title" id="who-title">Who It Is For</h2>
+        <div class="two-col">
+          <article class="card">
+            <h3>Ideal Audience</h3>
+            <ul>
+              <li>Online students and recent graduates</li>
+              <li>International students preparing for U.S. internships</li>
+              <li>Career switchers and bootcamp learners</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Why Now</h3>
+            <ul>
+              <li>AI disruption increases the need for personal guidance</li>
+              <li>Online and hybrid learning are growing quickly</li>
+              <li>Employers increasingly use skill-based hiring</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" aria-labelledby="why-us-title">
+      <div class="container">
+        <h2 class="section-title" id="why-us-title">Why Us</h2>
+        <div class="two-col">
+          <article class="card">
+            <h3>Practical Coaching</h3>
+            <p>
+              The approach combines real-world career preparation with clear weekly actions,
+              measurable improvements, and role-focused guidance.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Human + AI Advantage</h3>
+            <p>
+              Aditya Lumina blends personalized mentoring with AI-supported workflows so
+              learners can move faster without losing quality or direction.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <h2 class="section-title" id="pricing-title">Pricing</h2>
+        <p class="section-intro">Simple tiers for learners at different stages of career preparation.</p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="plan">
+              <h3>Starter</h3>
+              <div class="price">Free</div>
+            </div>
+            <ul class="list-plain">
+              <li><span class="tick" aria-hidden="true">✓</span><span>Templates and checklists</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Career objective discussion</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>30-minute intro call</span></li>
+            </ul>
+            <a
+              class="btn"
+              href="https://calendly.com/251992-rajaditya/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Started
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="plan">
+              <h3>Standard</h3>
+              <div class="price">Rs199</div>
+            </div>
+            <ul class="list-plain">
+              <li><span class="tick" aria-hidden="true">✓</span><span>2 coaching sessions</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Resume and LinkedIn optimization</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Personalized skill roadmap</span></li>
+            </ul>
+            <a
+              class="btn primary"
+              href="upi://pay?pa=adiraj2607@axl&pn=Aditya%20Raj&cu=INR"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Choose Standard
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="plan">
+              <h3>Premium</h3>
+              <div class="price">Rs599</div>
+            </div>
+            <ul class="list-plain">
+              <li><span class="tick" aria-hidden="true">✓</span><span>4 sessions plus chat support</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Mock interviews and feedback</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>AI tool suite guidance</span></li>
+            </ul>
+            <a
+              class="btn primary"
+              href="upi://pay?pa=adiraj2607@axl&pn=Aditya%20Raj&cu=INR"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Choose Premium
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="plan">
+              <h3>Elite</h3>
+              <div class="price">Rs1099</div>
+            </div>
+            <ul class="list-plain">
+              <li><span class="tick" aria-hidden="true">✓</span><span>Unlimited chat and priority slots</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Case prep and portfolio review</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Career referrals when available</span></li>
+            </ul>
+            <a
+              class="btn"
+              href="upi://pay?pa=adiraj2607@axl&pn=Aditya%20Raj&cu=INR"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Choose Elite
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 class="section-title" id="contact-title">Contact</h2>
+
+        <div class="contact card">
+          <p>
+            Have questions or want a custom plan for your cohort or university?
+            Send a quick note and get a response within 24 hours.
+          </p>
+
+          <form action="mailto:251992.rajaditya@gmail.com" method="post" enctype="text/plain">
+            <label for="email" class="note">Your email</label>
+            <div class="row">
+              <input
+                class="input"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                autocomplete="email"
+              />
+              <button class="btn primary" type="submit">Email Us</button>
+            </div>
+          </form>
+
+          <p class="note">
+            You can also book directly through Calendly or add a domain email later for production use.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © <span id="y"></span> Aditya Lumina — Career Coaching for Online Students · Built with ♥
+    <p>© <span id="y"></span> Aditya Lumina — Career Growth with AI</p>
   </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
